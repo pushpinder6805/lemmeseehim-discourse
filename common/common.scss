@@ -211,3 +211,116 @@ div[data-wrap="hidden"] {
     color: var(--quaternary);
   }
 }
+
+//custom-codes//
+/* General Table Styling */
+.category-list {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #121212;
+  color: #ffffff;
+}
+
+/* Header and Category Titles */
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Category Icons */
+.category-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.category-icon-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #333;
+  border-radius: 50%;
+  color: #fff;
+}
+
+/* Category Description */
+.category-description {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* Table Columns */
+.category-row td {
+  padding: 12px 10px;
+  vertical-align: middle;
+  border-bottom: 1px solid #333;
+}
+
+/* Topic and Replies Count */
+.topics, .replies {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Latest Topic Section */
+.latest {
+  min-width: 200px;
+}
+
+.featured-topic {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Latest Topic Title */
+.featured-topic .title {
+  font-size: 0.9rem;
+  color: #4dabf7;
+  text-decoration: none;
+}
+
+.featured-topic .title:hover {
+  text-decoration: underline;
+}
+
+/* Latest Topic Avatar */
+.categories-latest-topic-avatar img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .category-row {
+      display: block;
+      width: 100%;
+  }
+
+  .category-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .topics, .replies, .latest {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+  }
+
+  .featured-topic {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
+

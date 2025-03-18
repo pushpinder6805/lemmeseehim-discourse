@@ -8,71 +8,56 @@
 	<tr
 		data-category-id="{{this.category.id}}"
 		data-notification-level="{{this.category.notificationLevelString}}"
-		class="{{if this.category.description_excerpt "has-description" "no-description"}}
-			   {{if this.category.uploaded_logo.url "has-logo" "no-logo"}}
-			   {{if this.category.subcategories "has-subcategories" ""}}"
+		class="category-row {{if this.category.description_excerpt "has-description" "no-description"}}"
 	>
-		<td
-			class="category
-				{{if this.category.subcategories "parent-category"}}
-				{{if this.isMuted "muted"}}
-				{{if this.noCategoryStyle "no-category-style"}}"
-			style={{category-color-variable this.category.color}}
-		>
-			<a
-				class="enclosing-category-link"
-				href="/c/{{this.category.parentCategory.slug}}/{{this.category.slug}}/{{this.category.id}}"
-			>
-				{{category-title-link category=this.category}}
-				{{#if this.category.description_excerpt}}
-					<div class="category-description">
-						{{html-safe this.category.description_excerpt}}
-					</div>
-				{{/if}}
-			</a>
-		</td>
-		
-		<td class="topics">
-			<div title="{{this.category.topic_count}}">
-				{{d-icon "comments"}}
-				<span class="number">{{this.category.topic_count}}</span>
-			</div>
-			{{category-unread category=this.category tagName="div" class="unread-new"}}
-		</td>
-		
-		<td class="replies">
-			<div title="post count">
-				{{d-icon "reply"}}
-				<span class="number">{{this.category.post_count}}</span>
-			</div>
-		</td>
-		
-		{{#if this.showTopics}}
-			<td class="latest">
-				{{#if this.category.topics}}
-					{{#if this.category.topics.length}}
-						{{#each this.category.topics as |topic|}}
-							<div class="featured-topic">
-								<span class="categories-latest-topic-avatar">
-									<a href="/u/{{topic.last_poster.username}}" data-user-card="{{topic.last_poster.username}}">
-										{{avatar topic.last_poster imageSize="small"}}
-									</a>
-								</span>
-								<a class="title" href="/t/{{topic.slug}}/{{topic.id}}">
-									{{topic.title}}
-								</a>
-								<a class="last-posted-at" href="/t/{{topic.slug}}/{{topic.id}}">
-									<span class="relative-date" data-time="{{topic.last_posted_at}}" data-format="tiny"></span>
-								</a>
-							</div>
-						{{/each}}
-					{{else}}
-						<li class="empty-topic">No topics available</li>
-					{{/if}}
+		<td class="category-details" style={{category-color-variable this.category.color}}>
+			<div class="category-header">
+				{{#if this.category.uploaded_logo.url}}
+					<img class="category-icon" src="{{this.category.uploaded_logo.url}}" alt="{{this.category.name}}" />
 				{{else}}
-					<li class="empty-topic">No topics available</li>
+					<span class="category-icon-placeholder">{{d-icon "folder"}}</span>
 				{{/if}}
-			</td>
-		{{/if}}
+				<a class="category-title-link" href="/c/{{this.category.parentCategory.slug}}/{{this.category.slug}}/{{this.category.id}}">
+					<span class="category-name">{{this.category.name}}</span>
+				</a>
+			</div>
+			{{#if this.category.description_excerpt}}
+				<div class="category-description">
+					{{html-safe this.category.description_excerpt}}
+				</div>
+			{{/if}}
+		</td>
+
+		<td class="topics">
+			{{d-icon "comments"}}
+			<span class="number">{{this.category.topic_count}}</span>
+		</td>
+
+		<td class="replies">
+			{{d-icon "reply"}}
+			<span class="number">{{this.category.post_count}}</span>
+		</td>
+
+		<td class="latest">
+			{{#if this.category.topics.length}}
+				{{#each this.category.topics as |topic|}}
+					<div class="featured-topic">
+						<span class="categories-latest-topic-avatar">
+							<a href="/u/{{topic.last_poster.username}}" data-user-card="{{topic.last_poster.username}}">
+								{{avatar topic.last_poster imageSize="small"}}
+							</a>
+						</span>
+						<a class="title" href="/t/{{topic.slug}}/{{topic.id}}">
+							{{topic.title}}
+						</a>
+						<a class="last-posted-at" href="/t/{{topic.slug}}/{{topic.id}}">
+							<span class="relative-date" data-time="{{topic.last_posted_at}}" data-format="tiny"></span>
+						</a>
+					</div>
+				{{/each}}
+			{{else}}
+				<li class="empty-topic">No recent topics</li>
+			{{/if}}
+		</td>
 	</tr>
 {{/unless}}
