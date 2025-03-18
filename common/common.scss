@@ -1,0 +1,168 @@
+/* =============================
+   🎨 GENERAL STYLES (DARK MODE)
+   ============================= */
+   body {
+    background: #121212;
+    color: #ffffff;
+}
+
+.category-list {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #181818;
+    color: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* =============================
+   🏷️ CATEGORY HEADER (TITLE + STATS)
+   ============================= */
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.category-title-link {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.category-title-link:hover {
+    text-decoration: underline;
+    color: #4dabf7;
+}
+
+/* Category Badge (Small Pink Dot) */
+.category-badge {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff4081;
+    margin-right: 6px;
+}
+
+/* =============================
+   📜 CATEGORY DESCRIPTION
+   ============================= */
+.category-description {
+    font-size: 0.9rem;
+    color: #bbb;
+    line-height: 1.4;
+    max-width: 800px;
+}
+
+/* Hyperlinks in category descriptions */
+.category-description a {
+    color: #4dabf7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.category-description a:hover {
+    text-decoration: underline;
+}
+
+/* =============================
+   🏆 TOPIC COUNTS & ICONS
+   ============================= */
+.category-row td {
+    padding: 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid #333;
+}
+
+/* Topics, Replies & Latest Section */
+.topics, .replies {
+    text-align: center;
+    font-size: 0.9rem;
+    min-width: 80px;
+}
+
+.topics svg, .replies svg {
+    margin-right: 4px;
+    color: #888;
+}
+
+/* =============================
+   🔥 LATEST TOPICS (RIGHT COLUMN)
+   ============================= */
+.latest {
+    min-width: 250px;
+}
+
+.featured-topic {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Topic Title */
+.featured-topic .title {
+    font-size: 0.9rem;
+    color: #4dabf7;
+    text-decoration: none;
+    max-width: 230px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.featured-topic .title:hover {
+    text-decoration: underline;
+}
+
+/* Last Posted At */
+.last-posted-at {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Latest Topic Avatar */
+.categories-latest-topic-avatar img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+/* =============================
+   📱 RESPONSIVE DESIGN
+   ============================= */
+@media screen and (max-width: 1024px) {
+    .category-list {
+        display: block;
+    }
+
+    .category-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid #333;
+        padding: 10px;
+    }
+
+    .topics, .replies, .latest {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 8px 0;
+    }
+
+    .featured-topic {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .latest {
+        min-width: auto;
+    }
+}
+
