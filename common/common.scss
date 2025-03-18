@@ -158,25 +158,6 @@ div[data-wrap="hidden"] {
   padding: inherit;
 }
 
-// custom topic reply button styles
-
-.btn {
-  &:focus {
-    background-color: var(--tertiary-very-low);
-    &,
-    .d-icon {
-      color: var(--primary);
-    }
-  }
-}
-
-.admin-customize .current-style {
-  .edit-main-nav .nav-pills > li a.active,
-  .nav-pills li a.active {
-    color: var(--quaternary);
-  }
-}
-
 //category-list//
 table.category-list {
   position: relative;
