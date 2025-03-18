@@ -76,7 +76,7 @@
 											{{topic.title}}
 										</a>
 										<a class="last-posted-at" href="/t/{{topic.slug}}/{{topic.id}}">
-											<span class="relative-date" data-time="{{topic.last_posted_at}}" data-format="tiny"></span>
+											<span class="relative-date" data-time="{{unix topic.last_posted_at}}" data-format="tiny"></span>
 										</a>
 									</div>
 								{{/each}}
